@@ -7,6 +7,11 @@ sealed trait List[+A] {
     case _ => Nil
   }
 
+  def foldRight[B](z: B)(f: (A, B) => B): B = this match {
+    case Cons(head, tail) => f(head, tail.foldRight(z)(f))
+    case _ => z
+  }
+
   def init(): List[A] = this match {
     case Cons(_, Nil) => Nil
     case Cons(head, tail) => Cons(head, tail.init())
