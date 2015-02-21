@@ -18,6 +18,8 @@ sealed trait List[+A] {
     case _ => Nil
   }
 
+  def length: Int = foldRight(0)((_, total) => total + 1)
+
   def tail: List[A] = drop(1)
 }
 

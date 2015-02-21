@@ -158,25 +158,25 @@ class ListSpec extends FlatSpec with Matchers {
 
   // Exercise 8
 
-//  it should "return 0 when length is called on empty list" in {
-//    // Arrange
-//    val emptyList = Nil
-//
-//    // Act
-//    val result = emptyList.length
-//
-//    // Assert
-//    result shouldEqual 0
-//  }
-//
-//  it should "return the list's size when length is called on non-empty list" in {
-//    // Arrange
-//    val aList = Cons(4, Cons(5))
-//
-//    // Act
-//    val result = aList.length
-//
-//    // Assert
-//    result shouldEqual 2
-//  }
+  it should "return 0 when length is called on empty list" in {
+    // Arrange
+    val emptyList = Nil
+
+    // Act
+    val result = emptyList.length
+
+    // Assert
+    result shouldEqual 0
+  }
+
+  it should "return the list's size when length is called on non-empty list" in {
+    // Arrange
+    val aList = Cons(4, Cons(5))
+
+    // Act
+    val result = aList.length
+
+    // Assert
+    result shouldEqual 2
+  }
 }
