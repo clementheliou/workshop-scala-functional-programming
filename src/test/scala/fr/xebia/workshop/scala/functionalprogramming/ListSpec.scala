@@ -227,4 +227,28 @@ class ListSpec extends FlatSpec with Matchers {
     // Assert
     result shouldEqual Cons("4", Cons("5"))
   }
+
+  // Exercise 13
+  
+//  it should "return an empty list when filter is called on non-empty list with a predicate that doesn't match" in {
+//    // Arrange
+//    val aList = Cons(4, Cons(6))
+//
+//    // Act
+//    val result = aList.filter(_ % 2 != 0)
+//
+//    // Assert
+//    result shouldEqual Nil
+//  }
+//
+//  it should "filter the matching elements when filter is called on non-empty list with a predicate that does match" in {
+//    // Arrange
+//    val aList = Cons(4, Cons(5))
+//
+//    // Act
+//    val result = aList.filter(_ % 2 != 0)
+//
+//    // Assert
+//    result shouldEqual Cons(5)
+//  }
 }

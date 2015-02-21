@@ -28,24 +28,23 @@ sealed trait List[+A] {
 
   def length: Int = foldLeft(0)((total, _) => total + 1)
 
+  def map[B](f: A => B): List[B] = this match {
+    case Cons(head, tail) => Cons(f(head), tail.map(f))
+    case _ => Nil
+  }
+
   def tail: List[A] = drop(1)
 }
 
 object List {
 
-  def addOne(values: List[Int]): List[Int] = values match {
-    case Cons(head, tail) => new Cons(head + 1, addOne(tail))
-    case _ => Nil
-  }
+  def addOne(values: List[Int]): List[Int] = values.map(_ + 1)
 
   def product(values: List[Int]): Int = values.foldLeft(1)(_ * _)
 
   def sum(values: List[Int]): Int = values.foldLeft(0)(_ + _)
 
-  def toString(values: List[_]): List[String] = values match {
-    case Cons(head, tail) => new Cons(head.toString, toString(tail))
-    case _ => Nil
-  }
+  def toString(values: List[_]): List[String] = values.map(_.toString)
 }
 
 case object Nil extends List[Nothing]
