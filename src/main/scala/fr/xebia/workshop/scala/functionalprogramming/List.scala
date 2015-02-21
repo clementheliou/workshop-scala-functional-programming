@@ -33,6 +33,11 @@ sealed trait List[+A] {
 
 object List {
 
+  def addOne(values: List[Int]): List[Int] = values match {
+    case Cons(head, tail) => new Cons(head + 1, addOne(tail))
+    case _ => Nil
+  }
+
   def product(values: List[Int]): Int = values.foldLeft(1)(_ * _)
 
   def sum(values: List[Int]): Int = values.foldLeft(0)(_ + _)

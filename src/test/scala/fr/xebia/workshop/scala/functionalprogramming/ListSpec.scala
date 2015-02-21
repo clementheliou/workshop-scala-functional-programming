@@ -182,25 +182,49 @@ class ListSpec extends FlatSpec with Matchers {
 
   // Exercise 10
 
-//  it should "return an empty list when addOne is called on empty list" in {
+  it should "return an empty list when addOne is called on empty list" in {
+    // Arrange
+    val emtpyList = Nil
+
+    // Act
+    val result = List.addOne(emtpyList)
+
+    // Assert
+    result shouldEqual Nil
+  }
+
+  it should "increment each element by one when addOne is called on non-empty list" in {
+    // Arrange
+    val aList = Cons(4, Cons(5))
+
+    // Act
+    val result = List.addOne(aList)
+
+    // Assert
+    result shouldEqual Cons(5, Cons(6))
+  }
+
+  // Exercise 11
+
+//  it should "return an empty list when toString is called on emptyList" in {
 //    // Arrange
-//    val emtpyList = Nil
+//    val emptyList = Nil
 //
 //    // Act
-//    val result = List.addOne(emtpyList)
+//    val result = List.toString(emptyList)
 //
 //    // Assert
 //    result shouldEqual Nil
 //  }
 //
-//  it should "increment each element by one when addOne is called on non-empty list" in {
+//  it should "give each element's string representation when toString is called on non-empty list" in {
 //    // Arrange
 //    val aList = Cons(4, Cons(5))
 //
 //    // Act
-//    val result = List.addOne(aList)
+//    val result = List.toString(aList)
 //
 //    // Assert
-//    result shouldEqual Cons(5, Cons(6))
+//    result shouldEqual Cons("4", Cons("5"))
 //  }
 }
