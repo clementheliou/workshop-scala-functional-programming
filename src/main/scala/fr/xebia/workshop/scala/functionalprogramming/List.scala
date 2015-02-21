@@ -18,14 +18,13 @@ sealed trait List[+A] {
 
 object List {
 
-  def product(ints: List[Int]): Int = ints match {
-    case Cons(head, tail) => head * product(tail)
-    case _ => 1
-  }
+  def product(ints: List[Int]): Int = arithmeticOperation(ints, 1, _ * _)
 
-  def sum(ints: List[Int]): Int = ints match {
-    case Cons(head, tail) => head + sum(tail)
-    case _ => 0
+  def sum(ints: List[Int]): Int = arithmeticOperation(ints, 0, _ + _)
+
+  private def arithmeticOperation(values: List[Int], neutral: Int, operation: (Int, Int) => Int): Int = values match {
+    case Cons(head, tail) => operation(head, arithmeticOperation(tail, neutral, operation))
+    case _ => neutral
   }
 }
 
