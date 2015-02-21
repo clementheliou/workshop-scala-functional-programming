@@ -51,36 +51,59 @@ class ListSpec extends FlatSpec with Matchers{
 
   // Exercise 3
 
-//  it should "return an empty list when drop is called on empty list" in {
+  it should "return an empty list when drop is called on empty list" in {
+    // Arrange
+    val emptyList = Nil
+
+    // Act
+    val result = emptyList.drop(10)
+
+    // Assert
+    result shouldEqual Nil
+  }
+
+  it should "return an empty list when drop size is greater than the list length" in {
+    // Arrange
+    val aList = Cons(4, Cons(3, Cons(2)))
+
+    // Act
+    val result = aList.drop(6)
+
+    // Assert
+    result shouldEqual Nil
+  }
+
+  it should "return all elements except the first n ones when drop is called" in {
+    // Arrange
+    val aList = Cons(4, Cons(3, Cons(2)))
+
+    // Act
+    val result = aList.drop(2)
+
+    // Assert
+    result shouldEqual Cons(2)
+  }
+
+  // Exercise 4
+//  it should "return Nil when init is called on empty list" in {
 //    // Arrange
 //    val emptyList = Nil
 //
 //    // Act
-//    val result = emptyList.drop(10)
+//    val result = emptyList.init()
 //
 //    // Assert
 //    result shouldEqual Nil
 //  }
 //
-//  it should "return an empty list when drop size is greater than the list length" in {
+//  it should "return all elements but the last one when init is called on non-empty list" in {
 //    // Arrange
-//    val aList = Cons(4, Cons(3, Cons(2)))
+//    val aList = Cons(4, Cons(5, Cons(6)))
 //
 //    // Act
-//    val result = aList.drop(6)
+//    val result = aList.init()
 //
 //    // Assert
-//    result shouldEqual Nil
-//  }
-//
-//  it should "return all elements except the first n ones when drop is called" in {
-//    // Arrange
-//    val aList = Cons(4, Cons(3, Cons(2)))
-//
-//    // Act
-//    val result = aList.drop(2)
-//
-//    // Assert
-//    result shouldEqual Cons(2)
+//    result shouldEqual Cons(4, Cons(5))
 //  }
 }
