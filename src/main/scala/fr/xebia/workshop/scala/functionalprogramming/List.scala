@@ -17,6 +17,12 @@ sealed trait List[+A] {
 }
 
 object List {
+
+  def product(ints: List[Int]): Int = ints match {
+    case Cons(head, tail) => head * product(tail)
+    case _ => 1
+  }
+
   def sum(ints: List[Int]): Int = ints match {
     case Cons(head, tail) => head + sum(tail)
     case _ => 0

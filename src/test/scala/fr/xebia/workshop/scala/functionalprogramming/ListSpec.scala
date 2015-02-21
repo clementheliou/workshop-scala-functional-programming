@@ -134,25 +134,25 @@ class ListSpec extends FlatSpec with Matchers {
 
   // Exercise 6
 
-//  it should "return 1 when product is called on empty list" in {
-//    // Arrange
-//    val emptyList = Nil
-//
-//    // Act
-//    val product = List.product(emptyList)
-//
-//    // Assert
-//    product shouldEqual 1
-//  }
-//
-//  it should "return the product of integers when product is called on non-empty list" in {
-//    // Arrange
-//    val aList = Cons(4, Cons(5, Cons(12)))
-//
-//    // Act
-//    val product = List.product(aList)
-//
-//    // Assert
-//    product shouldEqual 240
-//  }
+  it should "return 1 when product is called on empty list" in {
+    // Arrange
+    val emptyList = Nil
+
+    // Act
+    val product = List.product(emptyList)
+
+    // Assert
+    product shouldEqual 1
+  }
+
+  it should "return the product of integers when product is called on non-empty list" in {
+    // Arrange
+    val aList = Cons(4, Cons(5, Cons(12)))
+
+    // Act
+    val product = List.product(aList)
+
+    // Assert
+    product shouldEqual 240
+  }
 }
