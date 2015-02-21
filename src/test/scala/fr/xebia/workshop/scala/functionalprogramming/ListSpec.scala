@@ -253,38 +253,51 @@ class ListSpec extends FlatSpec with Matchers {
   }
 
   // Exercise 14
-//  
-//  it should "return the left side list when joining an non-empty list with an empty one" in {
+
+  it should "return the left side list when joining an non-empty list with an empty one" in {
+    // Arrange
+    val aList = Cons(4, Cons(5))
+
+    // Act
+    val result = aList.join(Nil)
+
+    // Assert
+    result shouldEqual aList
+  }
+
+  it should "return the right side list when joining an empty list with an non-empty one" in {
+    // Arrange
+    val aList = Cons(4, Cons(5))
+
+    // Act
+    val result = Nil.join(aList)
+
+    // Assert
+    result shouldEqual aList
+  }
+
+  it should "return the concatenation of the given non-empty lists when joining them" in {
+    // Arrange
+    val aList = Cons(4, Cons(5))
+    val anotherList = Cons(6)
+
+    // Act
+    val result = aList.join(anotherList)
+
+    // Assert
+    result shouldEqual Cons(4, Cons(5, Cons(6)))
+  }
+
+  // Exercise 15
+
+//  it should "return a list of all lowercase/uppercase words when flatMap is called on non-empty list of words" in {
 //    // Arrange
-//    val aList = Cons(4, Cons(5))
+//    val words = Cons("Harry", Cons("Potter"))
 //
 //    // Act
-//    val result = aList.join(Nil)
+//    val result = words.flatMap(s => Cons(s.toLowerCase, Cons(s.toUpperCase)))
 //
 //    // Assert
-//    result shouldEqual aList
-//  }
-//
-//  it should "return the right side list when joining an empty list with an non-empty one" in {
-//    // Arrange
-//    val aList = Cons(4, Cons(5))
-//
-//    // Act
-//    val result = Nil.join(aList)
-//
-//    // Assert
-//    result shouldEqual aList
-//  }
-//
-//  it should "return the concatenation of the given non-empty lists when joining them" in {
-//    // Arrange
-//    val aList = Cons(4, Cons(5))
-//    val anotherList = Cons(6)
-//
-//    // Act
-//    val result = aList.join(anotherList)
-//
-//    // Assert
-//    result shouldEqual Cons(4, Cons(5, Cons(6)))
+//    result shouldEqual Cons("harry", Cons("HARRY", Cons("potter", Cons("POTTER"))))
 //  }
 }

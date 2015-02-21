@@ -32,6 +32,8 @@ sealed trait List[+A] {
     case _ => Nil
   }
 
+  def join[B >: A](others: List[B]): List[B] = foldRight(others)(Cons(_, _))
+
   def length: Int = foldLeft(0)((total, _) => total + 1)
 
   def map[B](f: A => B): List[B] = this match {
