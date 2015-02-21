@@ -7,6 +7,12 @@ sealed trait List[+A] {
     case _ => Nil
   }
 
+  def init(): List[A] = this match {
+    case Cons(_, Nil) => Nil
+    case Cons(head, tail) => Cons(head, tail.init())
+    case _ => Nil
+  }
+
   def tail: List[A] = drop(1)
 }
 

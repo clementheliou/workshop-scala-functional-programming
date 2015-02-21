@@ -85,25 +85,50 @@ class ListSpec extends FlatSpec with Matchers{
   }
 
   // Exercise 4
-//  it should "return Nil when init is called on empty list" in {
+
+  it should "return Nil when init is called on empty list" in {
+    // Arrange
+    val emptyList = Nil
+
+    // Act
+    val result = emptyList.init()
+
+    // Assert
+    result shouldEqual Nil
+  }
+
+  it should "return all elements but the last one when init is called on non-empty list" in {
+    // Arrange
+    val aList = Cons(4, Cons(5, Cons(6)))
+
+    // Act
+    val result = aList.init()
+
+    // Assert
+    result shouldEqual Cons(4, Cons(5))
+  }
+
+  // Exercise 5
+
+//  it should "return 0 when sum is called on empty list" in {
 //    // Arrange
 //    val emptyList = Nil
 //
 //    // Act
-//    val result = emptyList.init()
+//    val sum = List.sum(emptyList)
 //
 //    // Assert
-//    result shouldEqual Nil
+//    sum shouldEqual 0
 //  }
 //
-//  it should "return all elements but the last one when init is called on non-empty list" in {
+//  it should "return the sum of integers when sum is called on non-empty list" in {
 //    // Arrange
-//    val aList = Cons(4, Cons(5, Cons(6)))
+//    val aList = Cons(4, Cons(5, Cons(12)))
 //
 //    // Act
-//    val result = aList.init()
+//    val sum = List.sum(aList)
 //
 //    // Assert
-//    result shouldEqual Cons(4, Cons(5))
+//    sum shouldEqual 21
 //  }
 }
