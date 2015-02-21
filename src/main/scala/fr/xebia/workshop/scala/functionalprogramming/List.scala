@@ -9,6 +9,12 @@ sealed trait List[+A] {
     case _ => Nil
   }
 
+  def filter(p: (A => Boolean)): List[A] = this match {
+    case Cons(head, tail) if p(head) => Cons(head, tail.filter(p))
+    case Cons(_, tail) => tail.filter(p)
+    case _ => Nil
+  }
+
   @tailrec
   final def foldLeft[B](z: B)(f: (B, A) => B): B = this match {
     case Cons(head, tail) => tail.foldLeft(f(z, head))(f)

@@ -229,26 +229,62 @@ class ListSpec extends FlatSpec with Matchers {
   }
 
   // Exercise 13
-  
-//  it should "return an empty list when filter is called on non-empty list with a predicate that doesn't match" in {
-//    // Arrange
-//    val aList = Cons(4, Cons(6))
-//
-//    // Act
-//    val result = aList.filter(_ % 2 != 0)
-//
-//    // Assert
-//    result shouldEqual Nil
-//  }
-//
-//  it should "filter the matching elements when filter is called on non-empty list with a predicate that does match" in {
+
+  it should "return an empty list when filter is called on non-empty list with a predicate that doesn't match" in {
+    // Arrange
+    val aList = Cons(4, Cons(6))
+
+    // Act
+    val result = aList.filter(_ % 2 != 0)
+
+    // Assert
+    result shouldEqual Nil
+  }
+
+  it should "filter the matching elements when filter is called on non-empty list with a predicate that does match" in {
+    // Arrange
+    val aList = Cons(4, Cons(5))
+
+    // Act
+    val result = aList.filter(_ % 2 != 0)
+
+    // Assert
+    result shouldEqual Cons(5)
+  }
+
+  // Exercise 14
+//  
+//  it should "return the left side list when joining an non-empty list with an empty one" in {
 //    // Arrange
 //    val aList = Cons(4, Cons(5))
 //
 //    // Act
-//    val result = aList.filter(_ % 2 != 0)
+//    val result = aList.join(Nil)
 //
 //    // Assert
-//    result shouldEqual Cons(5)
+//    result shouldEqual aList
+//  }
+//
+//  it should "return the right side list when joining an empty list with an non-empty one" in {
+//    // Arrange
+//    val aList = Cons(4, Cons(5))
+//
+//    // Act
+//    val result = Nil.join(aList)
+//
+//    // Assert
+//    result shouldEqual aList
+//  }
+//
+//  it should "return the concatenation of the given non-empty lists when joining them" in {
+//    // Arrange
+//    val aList = Cons(4, Cons(5))
+//    val anotherList = Cons(6)
+//
+//    // Act
+//    val result = aList.join(anotherList)
+//
+//    // Assert
+//    result shouldEqual Cons(4, Cons(5, Cons(6)))
 //  }
 }
