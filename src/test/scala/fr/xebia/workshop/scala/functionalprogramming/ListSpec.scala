@@ -1,8 +1,8 @@
 package fr.xebia.workshop.scala.functionalprogramming
 
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{FlatSpec, Matchers}
 
-class ListSpec extends FlatSpec with Matchers{
+class ListSpec extends FlatSpec with Matchers {
 
   // Exercise 1
 
@@ -110,25 +110,49 @@ class ListSpec extends FlatSpec with Matchers{
 
   // Exercise 5
 
-//  it should "return 0 when sum is called on empty list" in {
+  it should "return 0 when sum is called on empty list" in {
+    // Arrange
+    val emptyList = Nil
+
+    // Act
+    val sum = List.sum(emptyList)
+
+    // Assert
+    sum shouldEqual 0
+  }
+
+  it should "return the sum of integers when sum is called on non-empty list" in {
+    // Arrange
+    val aList = Cons(4, Cons(5, Cons(12)))
+
+    // Act
+    val sum = List.sum(aList)
+
+    // Assert
+    sum shouldEqual 21
+  }
+
+  // Exercise 6
+
+//  it should "return 1 when product is called on empty list" in {
 //    // Arrange
 //    val emptyList = Nil
 //
 //    // Act
-//    val sum = List.sum(emptyList)
+//    val product = List.product(emptyList)
 //
 //    // Assert
-//    sum shouldEqual 0
+//    product shouldEqual 1
 //  }
 //
-//  it should "return the sum of integers when sum is called on non-empty list" in {
+//  it should "return the product of integers when product is called on non-empty list" in {
 //    // Arrange
 //    val aList = Cons(4, Cons(5, Cons(12)))
 //
 //    // Act
-//    val sum = List.sum(aList)
+//    val product = List.product(aList)
 //
 //    // Assert
-//    sum shouldEqual 21
+//    product shouldEqual 240
 //  }
 }

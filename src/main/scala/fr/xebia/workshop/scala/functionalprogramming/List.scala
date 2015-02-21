@@ -16,6 +16,13 @@ sealed trait List[+A] {
   def tail: List[A] = drop(1)
 }
 
+object List {
+  def sum(ints: List[Int]): Int = ints match {
+    case Cons(head, tail) => head + sum(tail)
+    case _ => 0
+  }
+}
+
 case object Nil extends List[Nothing]
 
 case class Cons[A](head: A, initialTail: List[A] = Nil) extends List[A]
