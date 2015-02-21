@@ -12,6 +12,11 @@ sealed trait Option[+A] {
     case _ => default
   }
 
+  def map[B](f: A => B): Option[B] = this match {
+    case Some(value) => Some(f(value))
+    case _ => None
+  }
+
   def orElse[B >: A](alternative: Option[B]): Option[B] = this match {
     case Some(_) => this
     case _ => alternative

@@ -46,12 +46,23 @@ class OptionSpec extends FlatSpec with Matchers{
     result shouldEqual None
   }
 
-//  it should "return None when map is called" in {
+  it should "return None when map is called" in {
+    // Arrange
+    val emptyOption: Option[Int] = None
+
+    // Act
+    val result = emptyOption.map(_.toString)
+
+    // Assert
+    result shouldEqual None
+  }
+
+//  it should "return None when flatMap is called" in {
 //    // Arrange
 //    val emptyOption: Option[Int] = None
 //
 //    // Act
-//    val result = emptyOption.map(_.toString)
+//    val result = emptyOption.flatMap(Some(_))
 //
 //    // Assert
 //    result shouldEqual None
@@ -101,14 +112,36 @@ class OptionSpec extends FlatSpec with Matchers{
     result shouldEqual anOption
   }
 
-//  it should "return its value mapping result when map is called" in {
+  it should "return its value mapping result when map is called" in {
+    // Arrange
+    val anOption = Some(6)
+
+    // Act
+    val result = anOption.map(_.toString)
+
+    // Assert
+    result shouldEqual Some("6")
+  }
+
+//  it should "return its value mapping result when flatMap is called" in {
 //    // Arrange
 //    val anOption = Some(6)
 //
 //    // Act
-//    val result = anOption.map(_.toString)
+//    val result = anOption.flatMap(Some(_))
 //
 //    // Assert
-//    result shouldEqual Some("6")
+//    result shouldEqual anOption
+//  }
+//
+//  it should "return None when flatMap is called with a failed mapping" in {
+//    // Arrange
+//    val anOption = Some(6)
+//
+//    // Act
+//    val result = anOption.flatMap(_ => None)
+//
+//    // Assert
+//    result shouldEqual None
 //  }
 }
