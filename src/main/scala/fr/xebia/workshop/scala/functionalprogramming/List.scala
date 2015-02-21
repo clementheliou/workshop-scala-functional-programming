@@ -15,6 +15,10 @@ sealed trait List[+A] {
     case _ => Nil
   }
 
+  def flatMap[B](f: A => List[B]): List[B] = map(f).foldRight[List[B]](Nil) { (current, total) =>
+    current.foldRight(total)(Cons(_, _))
+  }
+
   @tailrec
   final def foldLeft[B](z: B)(f: (B, A) => B): B = this match {
     case Cons(head, tail) => tail.foldLeft(f(z, head))(f)

@@ -290,14 +290,14 @@ class ListSpec extends FlatSpec with Matchers {
 
   // Exercise 15
 
-//  it should "return a list of all lowercase/uppercase words when flatMap is called on non-empty list of words" in {
-//    // Arrange
-//    val words = Cons("Harry", Cons("Potter"))
-//
-//    // Act
-//    val result = words.flatMap(s => Cons(s.toLowerCase, Cons(s.toUpperCase)))
-//
-//    // Assert
-//    result shouldEqual Cons("harry", Cons("HARRY", Cons("potter", Cons("POTTER"))))
-//  }
+  it should "return a list of all lowercase/uppercase words when flatMap is called on non-empty list of words" in {
+    // Arrange
+    val words = Cons("Harry", Cons("Potter"))
+
+    // Act
+    val result = words.flatMap(s => Cons(s.toLowerCase, Cons(s.toUpperCase)))
+
+    // Assert
+    result shouldEqual Cons("harry", Cons("HARRY", Cons("potter", Cons("POTTER"))))
+  }
 }
