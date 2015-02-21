@@ -1,8 +1,8 @@
 package fr.xebia.workshop.scala.functionalprogramming
 
-import org.scalatest.{Matchers, FlatSpec}
+import org.scalatest.{FlatSpec, Matchers}
 
-class OptionSpec extends FlatSpec with Matchers{
+class OptionSpec extends FlatSpec with Matchers {
 
   "An Option" can "be empty" in {
     None
@@ -57,16 +57,16 @@ class OptionSpec extends FlatSpec with Matchers{
     result shouldEqual None
   }
 
-//  it should "return None when flatMap is called" in {
-//    // Arrange
-//    val emptyOption: Option[Int] = None
-//
-//    // Act
-//    val result = emptyOption.flatMap(Some(_))
-//
-//    // Assert
-//    result shouldEqual None
-//  }
+  it should "return None when flatMap is called" in {
+    // Arrange
+    val emptyOption: Option[Int] = None
+
+    // Act
+    val result = emptyOption.flatMap(Some(_))
+
+    // Assert
+    result shouldEqual None
+  }
 
   "A non-empty Option" should "return its value when getOrElse is called" in {
     // Arrange
@@ -123,25 +123,25 @@ class OptionSpec extends FlatSpec with Matchers{
     result shouldEqual Some("6")
   }
 
-//  it should "return its value mapping result when flatMap is called" in {
-//    // Arrange
-//    val anOption = Some(6)
-//
-//    // Act
-//    val result = anOption.flatMap(Some(_))
-//
-//    // Assert
-//    result shouldEqual anOption
-//  }
-//
-//  it should "return None when flatMap is called with a failed mapping" in {
-//    // Arrange
-//    val anOption = Some(6)
-//
-//    // Act
-//    val result = anOption.flatMap(_ => None)
-//
-//    // Assert
-//    result shouldEqual None
-//  }
+  it should "return its value mapping result when flatMap is called" in {
+    // Arrange
+    val anOption = Some(6)
+
+    // Act
+    val result = anOption.flatMap(Some(_))
+
+    // Assert
+    result shouldEqual anOption
+  }
+
+  it should "return None when flatMap is called with a failed mapping" in {
+    // Arrange
+    val anOption = Some(6)
+
+    // Act
+    val result = anOption.flatMap(_ => None)
+
+    // Assert
+    result shouldEqual None
+  }
 }
