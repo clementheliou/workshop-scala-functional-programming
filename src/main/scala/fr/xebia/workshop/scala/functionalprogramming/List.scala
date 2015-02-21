@@ -42,6 +42,10 @@ object List {
 
   def sum(values: List[Int]): Int = values.foldLeft(0)(_ + _)
 
+  def toString(values: List[_]): List[String] = values match {
+    case Cons(head, tail) => new Cons(head.toString, toString(tail))
+    case _ => Nil
+  }
 }
 
 case object Nil extends List[Nothing]
