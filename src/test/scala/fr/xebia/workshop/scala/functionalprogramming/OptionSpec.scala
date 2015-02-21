@@ -35,12 +35,23 @@ class OptionSpec extends FlatSpec with Matchers{
     result shouldEqual Some(6)
   }
 
-//  it should "return None when filter is called" in {
+  it should "return None when filter is called" in {
+    // Arrange
+    val emptyOption: Option[Int] = None
+
+    // Act
+    val result = emptyOption.filter(_ % 2 == 0)
+
+    // Assert
+    result shouldEqual None
+  }
+
+//  it should "return None when map is called" in {
 //    // Arrange
 //    val emptyOption: Option[Int] = None
 //
 //    // Act
-//    val result = emptyOption.filter(_ % 2 == 0)
+//    val result = emptyOption.map(_.toString)
 //
 //    // Assert
 //    result shouldEqual None
@@ -67,26 +78,37 @@ class OptionSpec extends FlatSpec with Matchers{
     // Assert
     result shouldEqual anOption
   }
-//
-//  it should "return None when filter with a predicate that does not match it" in {
-//    // Arrange
-//    val anOption = Some(7)
-//
-//    // Act
-//    val result = anOption.filter(_ % 2 == 0)
-//
-//    // Assert
-//    result shouldEqual None
-//  }
-//
-//  it should "return its value when filtered with a predicate matching it" in {
+
+  it should "return None when filter with a predicate that does not match it" in {
+    // Arrange
+    val anOption = Some(7)
+
+    // Act
+    val result = anOption.filter(_ % 2 == 0)
+
+    // Assert
+    result shouldEqual None
+  }
+
+  it should "return its value when filtered with a predicate matching it" in {
+    // Arrange
+    val anOption = Some(6)
+
+    // Act
+    val result = anOption.filter(_ % 2 == 0)
+
+    // Assert
+    result shouldEqual anOption
+  }
+
+//  it should "return its value mapping result when map is called" in {
 //    // Arrange
 //    val anOption = Some(6)
 //
 //    // Act
-//    val result = anOption.filter(_ % 2 == 0)
+//    val result = anOption.map(_.toString)
 //
 //    // Assert
-//    result shouldEqual anOption
+//    result shouldEqual Some("6")
 //  }
 }
