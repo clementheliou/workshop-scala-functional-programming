@@ -1,6 +1,6 @@
 name := "functional-programming"
 
-organization := "com.xebia.workshop"
+organization := "fr.xebia.workshop.scala"
 
 scalaVersion := "2.11.5"
 
